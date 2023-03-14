@@ -1,13 +1,35 @@
 module.exports = {
-    HOST: process.env.DB_HOST,
-    USER: process.env.DB_USERNAME,
-    PASSWORD: process.env.DB_PASSWORD,
-    DB: process.env.DB_DATABASE,
+  development: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    host: process.env.DB_HOST,
+    port: 3306,
     dialect: process.env.DB_CONNECTION,
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
+    dialectOptions: {
+      bigNumberStrings: true
     }
+  },
+  test: {
+    username: process.env.CI_DB_USERNAME,
+    password: process.env.CI_DB_PASSWORD,
+    database: process.env.CI_DB_NAME,
+    host: '127.0.0.1',
+    port: 3306,
+    dialect: 'mysql',
+    dialectOptions: {
+      bigNumberStrings: true
+    }
+  },
+  production: {
+    username: process.env.PROD_DB_USERNAME,
+    password: process.env.PROD_DB_PASSWORD,
+    database: process.env.PROD_DB_NAME,
+    host: process.env.PROD_DB_HOSTNAME,
+    port: process.env.PROD_DB_PORT,
+    dialect: 'mysql',
+    dialectOptions: {
+      bigNumberStrings: true,
+    }
+  }
 };

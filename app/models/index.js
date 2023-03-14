@@ -1,11 +1,12 @@
 
-const { dbConfig } = require("../../config");
+const { dbConfig, env } = require("../../config");
 const Sequelize = require('Sequelize');
 
+const dbConf = dbConfig[env]
 
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
+const sequelize = new Sequelize(dbConf.database, dbConf.username, dbConf.password, {
+  host: dbConf.host,
+  dialect: dbConf.dialect /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
 });
 const db = {};
 

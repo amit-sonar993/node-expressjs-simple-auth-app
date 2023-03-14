@@ -25,6 +25,7 @@ function normalizePort(val) {
 
 
 module.exports = {
+    env: process.env.APP_ENV,
     endpoint: process.env.API_URL,
     masterKey: process.env.API_KEY,
     port: normalizePort(process.env.PORT || '3000'),
