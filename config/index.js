@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
-
 dotenv.config();
+
+const dbConfig = require('./db')
 
 /**
  * Normalize a port into a number, string, or false.
@@ -26,5 +27,6 @@ function normalizePort(val) {
 module.exports = {
     endpoint: process.env.API_URL,
     masterKey: process.env.API_KEY,
-    port: normalizePort(process.env.PORT || '3000')
+    port: normalizePort(process.env.PORT || '3000'),
+    dbConfig: dbConfig
 };

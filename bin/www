@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('express-simple-auth-app:server');
 var http = require('http');
+const db = require("../app/models");
+
 const { port } = require('../config');
 
 /**
@@ -28,6 +30,14 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
 
 /**
  * Event listener for HTTP server "error" event.
