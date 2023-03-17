@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var rootRouter = require('./routes');
+const passport = require('passport')
 
 var app = express();
 
@@ -14,6 +15,9 @@ app.use(express.json());
 
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
+
+// passport initialization
+app.use(passport.initialize());
 
 
 app.use(rootRouter);

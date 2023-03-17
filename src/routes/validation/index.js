@@ -6,14 +6,16 @@ const validationEndpointRules = {
         last_name: 'required',
         email: 'required|email',
         password: 'required'
-    }
+    },
+    'login': {
+        email: 'required|email',
+        password: 'required'
+    },
 }
 
 const validate = (validationEndpoint) => {
     return (req, res, next) => {
-        console.log(req);
         const reqBody = req.body
-        console.log('reqBody', reqBody);
         const validation = new Validator(reqBody, validationEndpointRules[validationEndpoint]);
 
         if (validation.fails()) {

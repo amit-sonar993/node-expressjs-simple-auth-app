@@ -2,6 +2,7 @@
 const { dbConfig, env } = require("../../../config");
 const {Sequelize, DataTypes} = require('sequelize')
 const User = require('./user')
+const AuthAccessToken = require('./auth.access.token')
 
 const dbConf = dbConfig[env]
 
@@ -25,5 +26,7 @@ db.sequelize = sequelize;
 
 //connecting to model
 db.User = User(sequelize, DataTypes)
+db.AuthAccessToken = AuthAccessToken(sequelize, DataTypes)
+
 
 module.exports = db;
