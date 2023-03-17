@@ -2,7 +2,8 @@ let Validator = require('validatorjs');
 
 const validationEndpointRules = {
     'register': {
-        name: 'required',
+        first_name: 'required',
+        last_name: 'required',
         email: 'required|email',
         password: 'required'
     }
