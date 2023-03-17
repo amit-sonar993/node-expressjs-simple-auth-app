@@ -4,12 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../src/app');
 var debug = require('debug')('express-simple-auth-app:server');
 var http = require('http');
-const db = require("../app/models");
-
-const { port } = require('../config');
+const db = require("../src/app/database/models");
+const { port } = require('../src/config');
 
 
 /**

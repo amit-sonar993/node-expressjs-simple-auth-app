@@ -3,7 +3,7 @@ var {dbConfig} = require('./config')
 
 module.exports = {
   'config':  path.resolve('config', 'index.js')['dbConfig'],
-  'migrations-path': path.resolve('app', 'migrations'),
+  'migrations-path': path.resolve('app/database', 'migrations'),
   'models-path': path.resolve('app', 'models'),
-  'seeders-path': path.resolve('app', 'seeders'),
+  'seeders-path': path.resolve('app/database', 'seeders'),
 }

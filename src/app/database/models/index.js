@@ -1,5 +1,5 @@
 
-const { dbConfig, env } = require("../../config");
+const { dbConfig, env } = require("../../../config");
 const Sequelize = require('Sequelize');
 
 const dbConf = dbConfig[env]
@@ -13,7 +13,4 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// db.tutorials = require(“./tutorial.model.js”) (sequelize, Sequelize);
-
 module.exports = db;
-// The user should not forget to summon the sync() method in the server.js.
