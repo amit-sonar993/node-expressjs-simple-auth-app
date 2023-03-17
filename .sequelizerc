@@ -1,9 +1,11 @@
 var path = require('path')
-var {dbConfig} = require('./config')
+const {dbConfig, env} = require('./src/config')
+
+const { host, port, dialect, username, password, database } = dbConfig[env]
 
 module.exports = {
-  'config':  path.resolve('config', 'index.js')['dbConfig'],
-  'migrations-path': path.resolve('app/database', 'migrations'),
-  'models-path': path.resolve('app', 'models'),
-  'seeders-path': path.resolve('app/database', 'seeders'),
+  'url': `${dialect}://${username}:${password}:@${host}:${port}/${database}`,
+  'migrations-path': path.resolve('./src/app/database', 'migrations'),
+  'models-path': path.resolve('./src/app/database', 'models'),
+  'seeders-path': path.resolve('./src/app/database', 'seeders'),
 }

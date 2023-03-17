@@ -1,4 +1,7 @@
 
+# Creating the db
+
+`npx sequelize-cli db:create`
 
 # running the migration
 

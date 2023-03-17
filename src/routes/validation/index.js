@@ -1,17 +1,5 @@
 let Validator = require('validatorjs');
 
-let data = {
-    name: 'John',
-    email: 'johndoe@gmail.com',
-    age: 28
-};
-
-let rules = {
-    name: 'required',
-    email: 'required|email',
-    age: 'min:18'
-};
-
 const validationEndpointRules = {
     'register': {
         name: 'required',
