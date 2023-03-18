@@ -18,6 +18,7 @@ describe('Auth routes', () => {
 
         test('should return 201 and successfully register user if request data is ok', async () => {
             const res = await request(app).post('/auth/register').send(newUser).expect(httpStatus.CREATED);
+            const dbUser = await User.findByPk(res.body.user.id);
 
             expect(res.body.user).not.toHaveProperty('password');
             expect(res.body.user).toEqual({
@@ -28,8 +29,6 @@ describe('Auth routes', () => {
                 createdAt: expect.anything(),
                 updatedAt: expect.anything()
             });
-
-            const dbUser = await User.findByPk(res.body.user.id);
             expect(dbUser).toBeDefined();
             expect(dbUser.password).not.toBe(newUser.password);
             expect(dbUser).toMatchObject({ first_name: newUser.first_name, last_name: newUser.last_name, email: newUser.email, });
@@ -46,7 +45,7 @@ describe('Auth routes', () => {
                 password: 'password1',
             };
         });
-        
+
         test('should return 200 and login user if email and password match', async () => {
             let res = await request(app).post('/auth/register').send(newUser).expect(httpStatus.CREATED);
             let newRegisteredUser = res.body.user;

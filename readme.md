@@ -10,6 +10,8 @@
 ## Install dependencies
 `yarn install`
 
+## Create .env file and Copy the content of .env.example file and set the variable(s) name
+
 ## Creating the db
 
 `npx sequelize-cli db:create`
