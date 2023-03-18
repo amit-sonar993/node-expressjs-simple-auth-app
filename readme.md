@@ -7,7 +7,7 @@
 ### Clone the project using
 `git clone https://github.com/amit-sonar993/node-expressjs-simple-auth-app.git`
 
-### Install dependencies
+### Go to project DIR and then Install dependencies
 `yarn install`
 
 ### Create .env file and Copy the content of .env.example file and update the variable(s) name
