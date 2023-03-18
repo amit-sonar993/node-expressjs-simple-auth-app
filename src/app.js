@@ -4,6 +4,7 @@ var path = require('path');
 var logger = require('morgan');
 var rootRouter = require('./routes');
 const passport = require('passport')
+const cors = require('cors');
 
 var app = express();
 
@@ -15,6 +16,10 @@ app.use(express.json());
 
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
+
+// enable cors
+app.use(cors());
+app.options('*', cors());
 
 // passport initialization
 app.use(passport.initialize());

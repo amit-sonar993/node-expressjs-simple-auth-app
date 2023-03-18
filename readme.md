@@ -26,7 +26,7 @@
 
 ### Finally we can now run the app 
 
-`yarn run dev `
+` yarn start `
 
 
 
