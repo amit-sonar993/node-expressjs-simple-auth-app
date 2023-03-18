@@ -1,4 +1,4 @@
-# Simple Auth REST API
+# Simple node-express Auth REST API
 
 
 ## Setup requirement 
