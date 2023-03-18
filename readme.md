@@ -1,4 +1,5 @@
-# Setup guide
+# Simple Auth REST API
+
 
 ## Setup requirement 
  - Node.js version = v18.14.2
