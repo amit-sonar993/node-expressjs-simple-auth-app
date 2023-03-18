@@ -21,7 +21,7 @@ const validate = (validationEndpoint) => {
         if (validation.fails()) {
             let errors = validation.errors['errors']
 
-            return res.json({
+            return res.status(422).json({
                 'success': false,
                 errors,
             });

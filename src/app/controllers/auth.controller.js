@@ -1,3 +1,4 @@
+const httpStatus = require('http-status');
 const { User } = require('../database/models')
 const bcrypt = require('bcrypt');
 const authTokenService = require('../../services/tokenService')
@@ -15,9 +16,9 @@ const authController = {
 
             const user = await User.create(data);
 
-            return res.json({ user })
+            res.status(httpStatus.CREATED).send({ user });
         } catch (error) {
-            return res.json({ error })
+            res.status(httpStatus.BAD_REQUEST).json({ error })
             console.error('Unable to create user:', error);
         }
     },
