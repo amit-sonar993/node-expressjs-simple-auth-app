@@ -4,19 +4,19 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     host: process.env.DB_HOST,
-    port: 3306,
+    port: process.env.DB_PORT,
     dialect: process.env.DB_CONNECTION,
     dialectOptions: {
       bigNumberStrings: true
     }
   },
   test: {
-    username: process.env.CI_DB_USERNAME,
-    password: process.env.CI_DB_PASSWORD,
-    database: process.env.CI_DB_NAME,
-    host: '127.0.0.1',
-    port: 3306,
-    dialect: 'mysql',
+    username: process.env.TEST_DB_USERNAME,
+    password: process.env.TEST_DB_PASSWORD,
+    database: process.env.TEST_DB_DATABASE,
+    host: process.env.TEST_DB_HOST,
+    port: process.env.TEST_DB_PORT,
+    dialect: process.env.TEST_DB_CONNECTION,
     dialectOptions: {
       bigNumberStrings: true
     }
@@ -24,12 +24,12 @@ module.exports = {
   production: {
     username: process.env.PROD_DB_USERNAME,
     password: process.env.PROD_DB_PASSWORD,
-    database: process.env.PROD_DB_NAME,
-    host: process.env.PROD_DB_HOSTNAME,
-    port: process.env.PROD_DB_PORT,
-    dialect: 'mysql',
+    database: process.env.PROD_DB_DATABASE,
+    host: process.env.PROD_DB_HOST,
+    port: 3306,
+    dialect: process.env.PROD_DB_CONNECTION,
     dialectOptions: {
-      bigNumberStrings: true,
+      bigNumberStrings: true
     }
   }
 };

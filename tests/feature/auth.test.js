@@ -4,6 +4,9 @@ const { User } = require('../../src/app/database/models');
 const httpStatus = require('http-status');
 const { faker } = require('@faker-js/faker');
 
+
+
+
 describe('Auth routes', () => {
     describe('POST /auth/register', () => {
         let newUser;
@@ -15,6 +18,7 @@ describe('Auth routes', () => {
                 password: 'password1',
             };
         });
+
 
         test('should return 201 and successfully register user if request data is ok', async () => {
             const res = await request(app).post('/auth/register').send(newUser).expect(httpStatus.CREATED);
@@ -49,8 +53,8 @@ describe('Auth routes', () => {
         test('should return 200 and login user if email and password match', async () => {
             let res = await request(app).post('/auth/register').send(newUser).expect(httpStatus.CREATED);
             let newRegisteredUser = res.body.user;
-                
-            res = await request(app).post('/auth/login').send({email: newRegisteredUser.email, password: newUser.password}).expect(httpStatus.OK);
+
+            res = await request(app).post('/auth/login').send({ email: newRegisteredUser.email, password: newUser.password }).expect(httpStatus.OK);
 
             expect(res.body).toMatchObject({
                 "success": true,
