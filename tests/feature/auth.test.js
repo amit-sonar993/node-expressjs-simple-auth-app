@@ -35,4 +35,40 @@ describe('Auth routes', () => {
             expect(dbUser).toMatchObject({ first_name: newUser.first_name, last_name: newUser.last_name, email: newUser.email, });
         });
     })
+
+    describe('POST /auth/login', () => {
+        let newUser;
+        beforeEach(() => {
+            newUser = {
+                first_name: faker.name.firstName(),
+                last_name: faker.name.firstName(),
+                email: faker.internet.email().toLowerCase(),
+                password: 'password1',
+            };
+        });
+        
+        test('should return 200 and login user if email and password match', async () => {
+            let res = await request(app).post('/auth/register').send(newUser).expect(httpStatus.CREATED);
+            let newRegisteredUser = res.body.user;
+                
+            res = await request(app).post('/auth/login').send({email: newRegisteredUser.email, password: newUser.password}).expect(httpStatus.OK);
+
+            expect(res.body).toMatchObject({
+                "success": true,
+                "data": {
+                    "user": {
+                        "id": newRegisteredUser.id,
+                        "first_name": newRegisteredUser.first_name,
+                        "last_name": newRegisteredUser.last_name,
+                        "email": newRegisteredUser.email,
+                        "createdAt": expect.anything(),
+                        "updatedAt": expect.anything()
+                    },
+                    "access_token": expect.anything(),
+                    "expires_at": expect.anything(),
+                    "token_type": "Bearer"
+                }
+            })
+        })
+    })
 })

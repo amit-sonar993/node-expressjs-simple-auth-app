@@ -1,8 +1,23 @@
+# Setup guide
 
-# Creating the db
+## Setup requirement 
+ - Node.js version = v18.14.2
+ - Yarn version = 1.22.19
+
+## Clone the project using
+`git clone https://github.com/amit-sonar993/node-expressjs-simple-auth-app.git`
+
+## Install dependencies
+`yarn install`
+
+## Creating the db
 
 `npx sequelize-cli db:create`
 
-# running the migration
+## running the migration
 
 `npx sequelize-cli db:migrate`
+
+## To Run tests
+
+`yarn test`
