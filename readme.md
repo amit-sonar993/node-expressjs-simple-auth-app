@@ -21,7 +21,7 @@
 
 ** This will create the database and create tabel(s) for Test environemnt which is going to be used for runing tests **
 
-`setup-test-db`
+`yarn setup-test-db`
 
 
 ### Finally we can now run the app 
